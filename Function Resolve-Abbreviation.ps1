@@ -48,6 +48,6 @@ Param	(
 		)
 Begin	{if		($Char)			{$Abbreviated = $Abbreviated.ToCharArray()}}
 Process	{if		($Split)		{$Expanded = $Expanded -Split $Split}
-		switch	($Abbreviated)	{{$Expanded -like "$_*"}{$Expanded -like "$_*"}}
-		}
+	 switch	($Abbreviated)	{{$Expanded -like "$_*"}{$Expanded -like "$_*"}}
+	}
 }
