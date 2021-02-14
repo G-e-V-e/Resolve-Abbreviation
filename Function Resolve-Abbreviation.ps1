@@ -1,7 +1,7 @@
 <#
 .Synopsis
 	Resolves abbreviation(s) to expanded string(s).
-.DESCRIPTION
+.Description
 	The passed abbreviation(s) is/are checked against equally passed fully expanded string(s) and the latter is/are returned to the caller.
 .Parameter Expanded
 	The fully expanded string(s) that will be returned if abbreviation(s) is/are found.
@@ -16,24 +16,26 @@
    [string[]]Abbreviated
 .Outputs
    [string[]]Result
-.EXAMPLE
-	Checks the array of possible abbreviations 'a','ba' and 'cit' against the strings 'apple','banana' and 'cranberry'. Only those strings for which abbreviations are found are returned.
-	Resolve-Abbreviation -Expanded apple,banana,cranberry -Abbreviated a,ba,cit
+.Example
+	Checks the array of possible abbreviations 'a','ba' and 'cit' against the strings 'apple','banana' and 'cherry'. Only those strings for which abbreviations are found are returned.
+	Resolve-Abbreviation -Expanded apple,banana,cherry -Abbreviated a,ba,cit
 	==> apple,banana
-.EXAMPLE
-	Check the array of possible abbreviations 'a','ba' and 'cit' against the strings 'apple','banana' and 'cranberry'. Only those strings for which abbreviations are found are returned.
-	Resolve-Abbreviation -Expanded apple,banana,cranberry -Abbreviated abc
+.Example
+	Check the array of possible abbreviations 'a','ba' and 'cit' against the strings 'apple','banana' and 'cherry'. Only those strings for which abbreviations are found are returned.
+	Resolve-Abbreviation -Expanded apple,banana,cherry -Abbreviated abc
 	==> $null
-	Resolve-Abbreviation -Expanded apple,banana,cranberry -Abbreviated abc -Char
-	==> apple,banana,cranberry
-.EXAMPLE
+	Resolve-Abbreviation -Expanded apple,banana,cherry -Abbreviated abc -Char
+	==> apple,banana,cherry
+.Example
 	Pass the expanded string value(s) from the pipeline, split in words using a regular expression and return those string(s) for which abbreviations are found.  
-	'test | echo','Next / Pair','Last \ Option \ Available' | Resolve-Abbreviation -split ' \| | / | \\ ' -Abbreviated teno -char
+	'test | echo','Next / Pair','Last \ Option \ Available' | Resolve-Abbreviation -Split ' \| | / | \\ ' -Abbreviated teno -char
 	==> test,echo,Next,Option
-	'test | echo','Next / Pair','Last \ Option \ Available' | Resolve-Abbreviation -split ' \| | / | \\ ' -Abbreviated te,pa
+	'test | echo','Next / Pair','Last \ Option \ Available' | Resolve-Abbreviation -Split ' \| | / | \\ ' -Abbreviated te,pa
 	==> test,Pair
 	'test | echo','Then / Else','Last \ Option \ Available' | Resolve-Abbreviation -split ' \| | / | \\ ' -abb te,pa -char
 	==> test,echo,Then,Else,Available
+.Notes
+	Author:	geve.one2one@gmail.com  
 #>
 Function Resolve-Abbreviation
 {
