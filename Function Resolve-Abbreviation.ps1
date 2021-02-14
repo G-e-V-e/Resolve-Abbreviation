@@ -46,8 +46,8 @@ Param	(
 		[Parameter(Position=2)][Alias('Abb')][String[]]$Abbreviated,
 		[switch]$Char
 		)
-Begin	{if		($Char)		{$Abbreviated = $Abbreviated.ToCharArray()}}
-Process	{if		($Split)	{$Expanded = $Expanded -Split $Split}
-	 switch	($Abbreviated)		{{$Expanded -like "$_*"}{$Expanded -like "$_*"}}
+Begin	{if	($Char)		{$Abbreviated = $Abbreviated.ToCharArray()}}
+Process	{if	($Split)	{$Expanded = $Expanded -Split $Split}
+	 switch	($Abbreviated)	{{$Expanded -like "$_*"}{$Expanded -like "$_*"}}
 	}
 }
